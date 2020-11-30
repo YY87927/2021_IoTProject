@@ -180,6 +180,11 @@ def main():
                 backward()
                 turn = False
                 time.sleep(1)
+            elif (distanceR < old_distanceR - 50) or (distanceL < old_distanceL - 50):
+            	motor1GPIO.ChangeDutyCycle(auto_speed)
+                motor2GPIO.ChangeDutyCycle(auto_speed)
+                backward()
+                time.sleep(1)
             if response=='w':
                 motor1GPIO.ChangeDutyCycle(auto_speed)
                 motor2GPIO.ChangeDutyCycle(auto_speed)
