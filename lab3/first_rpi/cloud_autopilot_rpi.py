@@ -67,7 +67,6 @@ def main():
     old_distanceL = 100
     old_distanceR = 100
     turn = False
-    dark_duration = 0
 
     t = threading.Thread(target=control_LED)
     t.start()
@@ -80,11 +79,17 @@ def main():
 
         if mode==1:
             response = parse_response(str(get_from_mcs("direction_m")), "direction_m")
+            if response=='2':
+                mode = 2
+                continue
             manual_control(response)
         if mode==2:
             response = parse_response(str(get_from_mcs("direction")), "direction")
             response2 = parse_response(str(get_from_mcs("direction_m")), "direction_m")
-            auto_pilot(response, response2, distanceR, distanceL, old_distanceR, old_distanceL)
+            if response2=='1':
+                mode = 1
+                continue
+            auto_pilot(response, distanceR, distanceL, old_distanceR, old_distanceL, turn)
             stop()
             time.sleep(.2)
             old_distanceR = distanceR

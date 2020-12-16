@@ -95,10 +95,8 @@ def manual_control(response):
         turn_left()
     elif response=="Key.space":
         stop()
-    elif response=='2':
-        mode = 2
 
-def auto_pilot(response, response2, distanceR, distanceL, old_distanceR, old_distanceL):
+def auto_pilot(response, distanceR, distanceL, old_distanceR, old_distanceL, turn):
     if (distanceR > old_distanceR + 0.5 or distanceL > old_distanceL + 0.5)\
         and turn == False:
         motor1GPIO.ChangeDutyCycle(auto_speed)
@@ -135,5 +133,3 @@ def auto_pilot(response, response2, distanceR, distanceL, old_distanceR, old_dis
         turn_right()
         turn = True
         time.sleep(1)
-    if response2=='1':
-        mode = 1
