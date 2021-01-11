@@ -10,8 +10,8 @@ from pynput.keyboard import Key, Listener
 
 #**************************************************** 
 # Set MediaTek Cloud Sandbox (MCS) Key
-deviceId = "D3X0jwfT"
-deviceKey = "0E6pZs0E6WM6hPbn"
+deviceId = "Dh0K5Kxe"
+deviceKey = "XFc6WGKMeMxy0oTl"
 #****************************************************
 
 #**************************************************** 
